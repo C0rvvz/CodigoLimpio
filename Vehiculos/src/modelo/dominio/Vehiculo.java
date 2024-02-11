@@ -1,9 +1,18 @@
+//En resumen, este código define una clase Vehiculo que representa un vehículo con varias características y proporciona métodos para acceder y modificar estas características, así como para formatear la documentación del vehículo y representar el objeto como una cadena.
+
+//Se define una clase llamada Vehiculo en el paquete modelo.dominio.
 package modelo.dominio;
 
+//Se especifica que la clase Vehiculo está en el paquete modelo.dominio.
+
+//Importo las clases SimpleDateFormat y Date del paquete java.text y java.util
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+//Declaro la clase Vehiculo.
 public class Vehiculo {
+
+    //Declaro variables miembro para representar las características de un vehículo.
     private String marca;
     private String modelo;
     private int año;
@@ -17,7 +26,12 @@ public class Vehiculo {
     private String condicion;
     private Date documentacion;
 
+    //A continuacion se define un constructor para la clase Vehiculo que toma todos los atributos del vehículo como argumentos y los asigna a las variables miembro correspondientes.
+
+    //Constructor que inicializa todas las variables de la clase Vehiculo
     public Vehiculo(String marca, String modelo, int año, String carroceria, String motorizacion, String transmision, String equipamiento, String color, String historia_manteniminto, int millaje_kilometraje, String condicion, Date documentacion) {
+
+        //Se asigna los valores recibidos a las variables miembro correspondientes
         this.marca = marca;
         this.modelo = modelo;
         this.año = año;
@@ -32,10 +46,9 @@ public class Vehiculo {
         this.documentacion = documentacion;
     }
 
-    public Vehiculo() {
+    //A continuacion se define otro constructor para la clase Vehiculo que toma solo algunas características del vehículo y las asigna a las variables miembro correspondientes.
 
-    }
-
+    //Constructor que solo inicializa algunas variables
     public Vehiculo(String marca, String modelo, int año, String carroceria, int millaje_kilometraje, String condicion) {
         this.marca = marca;
         this.modelo = modelo;
@@ -45,6 +58,9 @@ public class Vehiculo {
         this.condicion = condicion;
     }
 
+    //A continuacion se define métodos getters y setters para todas las variables miembro, lo que permite acceder y modificar sus valores.
+
+    //Métodos getters y setters para acceder y modificar las variables miembro
     public String getMarca() {
         return marca;
     }
@@ -141,11 +157,14 @@ public class Vehiculo {
         this.documentacion = documentacion;
     }
 
+    //A continuacion creamos un StringBuilder para almacenar la documentación formateada
+
+    //Método para formatear la documentación del vehículo
     public String formatearDocumentacion() {
-        // Creamos un StringBuilder para almacenar la documentación formateada
+        //Creamos un StringBuilder para almacenar la documentación formateada
         StringBuilder documentacionFormateada = new StringBuilder();
 
-        // Agregamos cada tipo de documentación a la cadena resultante, separándolos por "/"
+        //Agregamos cada tipo de documentación a la cadena resultante, separándolos por "/"
         documentacionFormateada.append("Título de propietario/")
                 .append("Registro del vehículo/")
                 .append("Certificado de matriculación o tarjetas de circulación/")
@@ -154,10 +173,13 @@ public class Vehiculo {
                 .append("Certificado de emisiones (si es aplicable)/")
                 .append("Contrato de venta o factura de compra");
 
-        // Devolvemos la cadena resultante
+        //Devolvemos la cadena resultante
         return documentacionFormateada.toString();
     }
 
+    //A continuacion se define un método toString() que devuelve una representación de cadena del objeto Vehiculo, mostrando sus características principales.
+
+    // Método toString para representar el objeto como una cadena
     @Override
     public String toString() {
         return "Vehiculo {" +
@@ -169,6 +191,5 @@ public class Vehiculo {
                 ", condicion='" + condicion + '\'' +
                 '}';
     }
-
 
 }
